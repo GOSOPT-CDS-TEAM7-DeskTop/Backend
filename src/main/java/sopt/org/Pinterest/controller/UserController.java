@@ -22,15 +22,15 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<UserInfoResponseDto> getUserInfo(@RequestBody @Valid final UserRequestDto request) {
+    public ApiResponse<UserInfoResponseDto> getUserInfo() {
 
-        return ApiResponse.success(Success.FIND_USER_INFO_SUCCESS, userService.getUserInfo(request.getUserId()));
+        return ApiResponse.success(Success.FIND_USER_INFO_SUCCESS, userService.getUserInfo(1L));
     }
 
     @GetMapping("/save")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<List<SavedPinResponseDto>> getSavedPinList(@RequestBody @Valid final UserRequestDto request) {
+    public ApiResponse<List<SavedPinResponseDto>> getSavedPinList() {
 
-        return ApiResponse.success(Success.FIND_SAVED_PIN_SUCCESS, userService.getSavedPinList(request.getUserId()));
+        return ApiResponse.success(Success.FIND_SAVED_PIN_SUCCESS, userService.getSavedPinList(1L));
     }
 }
