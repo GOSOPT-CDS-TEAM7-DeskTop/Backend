@@ -24,7 +24,7 @@ public class Comment extends CreatedTimeEntity{
     @JoinColumn(name = "pin_id")
     private Pin pin;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name="`like`")
     @ColumnDefault("0")
     private Integer like;
 

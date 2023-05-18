@@ -40,6 +40,10 @@ public class Pin extends CreatedTimeEntity {
     @OneToMany(mappedBy = "pin")
     private List<Comment> commentList = new ArrayList<>();
 
+    public void addComment(Comment comment){
+        commentList.add(comment);
+    }
+
     private Pin(String title, String content, String image, User user, String renderUrl, String altTxt) {
         this.title = title;
         this.content = content;

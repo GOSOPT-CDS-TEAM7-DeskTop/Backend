@@ -2,12 +2,11 @@ package sopt.org.Pinterest.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import sopt.org.Pinterest.controller.dto.PinDetailsDto;
+import sopt.org.Pinterest.controller.dto.response.PinDetailsDto;
 import sopt.org.Pinterest.domain.Pin;
 import sopt.org.Pinterest.exception.Error;
 import sopt.org.Pinterest.exception.model.NotFoundException;
 import sopt.org.Pinterest.infrastructure.PinRepository;
-import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor

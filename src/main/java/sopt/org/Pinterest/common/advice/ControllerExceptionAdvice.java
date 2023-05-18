@@ -23,7 +23,7 @@ public class ControllerExceptionAdvice {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     protected ApiResponse handleMethodArgumentNotValidException(final MethodArgumentNotValidException e) {
         FieldError fieldError = Objects.requireNonNull(e.getFieldError());
-        return ApiResponse.error(Error.REQUEST_VALIDATION_EXCEPTION, String.format("%s. (%s)", fieldError.getDefaultMessage(), fieldError.getField()));
+        return ApiResponse.error(Error.REQUEST_VALIDATION_EXCEPTION, String.format("%s는 %s", fieldError.getField(), fieldError.getDefaultMessage()));
     }
 
     /**

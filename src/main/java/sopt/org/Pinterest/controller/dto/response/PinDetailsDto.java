@@ -1,4 +1,4 @@
-package sopt.org.Pinterest.controller.dto;
+package sopt.org.Pinterest.controller.dto.response;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -6,9 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import sopt.org.Pinterest.domain.Comment;
 import sopt.org.Pinterest.domain.Pin;
-import sopt.org.Pinterest.domain.User;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
