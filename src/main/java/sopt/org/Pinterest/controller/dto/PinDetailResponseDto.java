@@ -6,24 +6,23 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import sopt.org.Pinterest.domain.Comment;
 import sopt.org.Pinterest.domain.Pin;
-import sopt.org.Pinterest.domain.User;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class PinDetailsDto {
+public class PinDetailResponseDto {
 
-    private PinResponseDto pin;
-    private List<CommentResponseDto> comment;
+    private PinDto pin;
+    private List<CommentDto> comment;
 
-    public static PinDetailsDto of(Pin pin) {
+    public static PinDetailResponseDto of(Pin pin) {
 
         List<Comment> comment = pin.getCommentList();
-        return new PinDetailsDto(PinResponseDto.of(pin), comment.stream().map(CommentResponseDto::of).collect(Collectors.toList()));
+        return new PinDetailResponseDto(
+            PinDto.of(pin), comment.stream().map(CommentDto::of).collect(Collectors.toList()));
     }
 
 }
