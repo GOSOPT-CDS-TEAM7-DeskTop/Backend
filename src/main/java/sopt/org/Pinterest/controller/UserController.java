@@ -20,8 +20,8 @@ public class UserController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<UserInfoResponseDto> getUserInfo(@RequestBody @Valid final UserRequestDto request) {
+    public ApiResponse<UserInfoResponseDto> getUserInfo() {
 
-        return ApiResponse.success(Success.FIND_USER_INFO_SUCCESS, userService.getUserInfo(request.getUserId()));
+        return ApiResponse.success(Success.FIND_USER_INFO_SUCCESS, userService.getUserInfo(1L)); //무조건 userId가 1인 유저의 마이페이지를 리턴하도록
     }
 }
