@@ -16,7 +16,7 @@ public class PinController {
 
     private final PinService pinService;
 
-    @GetMapping()
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<PinListResponseDto> getAllPins() {
         return ApiResponse.success((Success.GET_ALL_PIN_SUCCESS), pinService.getAllPins());

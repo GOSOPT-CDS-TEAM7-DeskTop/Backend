@@ -1,6 +1,6 @@
 package sopt.org.Pinterest.service;
 
-import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,6 @@ import sopt.org.Pinterest.domain.Pin;
 import sopt.org.Pinterest.exception.Error;
 import sopt.org.Pinterest.exception.model.NotFoundException;
 import sopt.org.Pinterest.infrastructure.PinRepository;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
