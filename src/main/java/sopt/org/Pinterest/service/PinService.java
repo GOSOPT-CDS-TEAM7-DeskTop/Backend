@@ -2,10 +2,11 @@ package sopt.org.Pinterest.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
-import sopt.org.Pinterest.controller.dto.response.PinDto;
+import sopt.org.Pinterest.controller.dto.PinDto;
 import sopt.org.Pinterest.controller.dto.response.PinListResponseDto;
 import sopt.org.Pinterest.domain.Pin;
 import sopt.org.Pinterest.exception.Error;
@@ -19,10 +20,11 @@ public class PinService {
     private final PinRepository pinRepository;
 
     public PinDetailResponseDto getOnePinDetails(Long pinId) {
-        Pin findPin = pinRepository.findById(pinId)
-            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
 
-        return PinDetailResponseDto.of(findPin);
+        Pin pin = pinRepository.findById(pinId)
+                .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
+
+        return PinDetailResponseDto.of(pin);
     }
 
     public PinListResponseDto getAllPins() {

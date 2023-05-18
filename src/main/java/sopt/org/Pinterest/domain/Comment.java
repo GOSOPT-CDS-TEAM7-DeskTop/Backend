@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Comment extends CreatedTimeEntity{
+public class Comment extends CreatedTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +24,7 @@ public class Comment extends CreatedTimeEntity{
     @JoinColumn(name = "pin_id")
     private Pin pin;
 
-    @Column(nullable = false, name="`like`")
+    @Column(nullable = false, name = "`like`")
     @ColumnDefault("0")
     private Integer like;
 

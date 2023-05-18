@@ -9,7 +9,6 @@ import sopt.org.Pinterest.controller.dto.response.PinListResponseDto;
 import sopt.org.Pinterest.exception.Success;
 import sopt.org.Pinterest.service.PinService;
 
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/pin")
@@ -27,7 +26,6 @@ public class PinController {
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<PinDetailResponseDto> getOnePinDetails(@PathVariable final Long pinId) {
 
-        return ApiResponse.success(Success.FIND_PIN_DETAILS_SUCCESS,
-            pinService.getOnePinDetails(pinId));
+        return ApiResponse.success(Success.GET_PIN_DETAILS_SUCCESS, pinService.getOnePinDetails(pinId));
     }
 }

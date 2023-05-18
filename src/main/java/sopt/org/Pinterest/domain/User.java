@@ -37,10 +37,18 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "scrap",
-            joinColumns = @JoinColumn(name="user_id"),
-            inverseJoinColumns = @JoinColumn(name="pin_id")
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "pin_id")
     )
     private List<Pin> savedPinList = new ArrayList<>();
+
+    public void addFollower() {
+        this.follower += 1;
+    }
+
+    public void addFollowing() {
+        this.following += 1;
+    }
 
     private User(String account, String nickname, String image) {
         this.account = account;

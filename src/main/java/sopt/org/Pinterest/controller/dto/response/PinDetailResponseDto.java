@@ -4,6 +4,8 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import sopt.org.Pinterest.controller.dto.CommentDto;
+import sopt.org.Pinterest.controller.dto.PinDto;
 import sopt.org.Pinterest.domain.Comment;
 import sopt.org.Pinterest.domain.Pin;
 
@@ -22,7 +24,7 @@ public class PinDetailResponseDto {
 
         List<Comment> comment = pin.getCommentList();
         return new PinDetailResponseDto(
-            PinDto.of(pin), comment.stream().map(CommentDto::of).collect(Collectors.toList()));
+                PinDto.of(pin), comment.stream().map(CommentDto::of).collect(Collectors.toList()));
     }
 
 }

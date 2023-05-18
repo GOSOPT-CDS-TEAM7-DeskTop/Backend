@@ -10,8 +10,8 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class UserRequestDto {
+public class FollowRequestDto {
 
     @NotNull
-    private Long userId;
+    private Long followedUserId;
 }

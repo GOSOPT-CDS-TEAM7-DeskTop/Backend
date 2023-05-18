@@ -1,4 +1,4 @@
-package sopt.org.Pinterest.controller.dto.response;
+package sopt.org.Pinterest.controller.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -28,6 +28,6 @@ public class CommentDto {
 
         User commentWriter = comment.getUser();
         return new CommentDto(comment.getId(), comment.getContent(), comment.getLike(),
-            comment.getCreatedTime(), commentWriter.getNickname(), commentWriter.getImage());
+                comment.getCreatedTime(), commentWriter.getNickname(), commentWriter.getImage());
     }
 }
