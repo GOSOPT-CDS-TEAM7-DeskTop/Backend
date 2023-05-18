@@ -14,8 +14,4 @@ public class FollowRequestDto {
 
     @NotNull
     private Long followedUserId;
-
-    @NotNull
-    private Long followingUserId;
-
 }
