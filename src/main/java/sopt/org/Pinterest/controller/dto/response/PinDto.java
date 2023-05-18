@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
-public class PinResponseDto {
+public class PinDto {
 
     private Long id;
     private String title;
@@ -29,10 +29,10 @@ public class PinResponseDto {
     private String renderUrl;
     private String altTxt;
 
-    public static PinResponseDto of(Pin pin) {
+    public static PinDto of(Pin pin) {
 
         User pinWriter = pin.getUser();
-        return new PinResponseDto(pin.getId(), pin.getTitle(), pin.getContent(), pin.getImage(),
+        return new PinDto(pin.getId(), pin.getTitle(), pin.getContent(), pin.getImage(),
                                   pinWriter.getNickname(), pinWriter.getFollower(), pinWriter.getImage(),
                                   pin.getCreatedTime(), pin.getRenderUrl(), pin.getAltTxt());
     }

@@ -3,8 +3,6 @@ package sopt.org.Pinterest.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sopt.org.Pinterest.controller.dto.response.CommentResponseDto;
-import sopt.org.Pinterest.controller.dto.response.PinDetailsDto;
 import sopt.org.Pinterest.controller.dto.response.SavedPinResponseDto;
 import sopt.org.Pinterest.controller.dto.response.UserInfoResponseDto;
 import sopt.org.Pinterest.domain.User;

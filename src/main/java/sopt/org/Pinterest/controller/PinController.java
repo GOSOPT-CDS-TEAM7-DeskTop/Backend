@@ -4,7 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.Pinterest.common.dto.ApiResponse;
-import sopt.org.Pinterest.controller.dto.response.PinDetailsDto;
+import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
 import sopt.org.Pinterest.exception.Success;
 import sopt.org.Pinterest.service.PinService;
 
@@ -18,7 +18,7 @@ public class PinController {
 
     @GetMapping("/{pinId}")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<PinDetailsDto> getOnePinDetails(@PathVariable final Long pinId) {
+    public ApiResponse<PinDetailResponseDto> getOnePinDetails(@PathVariable final Long pinId) {
 
         return ApiResponse.success(Success.FIND_PIN_DETAILS_SUCCESS, pinService.getOnePinDetails(pinId));
     }

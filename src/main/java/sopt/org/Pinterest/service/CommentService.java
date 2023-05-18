@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sopt.org.Pinterest.controller.dto.request.CommentRequestDto;
 import sopt.org.Pinterest.controller.dto.response.CommentCreatedDto;
-import sopt.org.Pinterest.controller.dto.response.PinDetailsDto;
 import sopt.org.Pinterest.domain.Comment;
 import sopt.org.Pinterest.domain.Pin;
 import sopt.org.Pinterest.domain.User;

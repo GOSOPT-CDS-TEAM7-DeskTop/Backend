@@ -25,14 +25,14 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<UserInfoResponseDto> getUserInfo(@RequestBody @Valid final UserRequestDto request) {
 
-        return ApiResponse.success(Success.FIND_USER_INFO_SUCCESS, userService.getUserInfo(request.getUserId()));
+        return ApiResponse.success(Success.GET_USER_INFO_SUCCESS, userService.getUserInfo(request.getUserId()));
     }
 
     @GetMapping("/save")
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<List<SavedPinResponseDto>> getSavedPinList(@RequestBody @Valid final UserRequestDto request) {
 
-        return ApiResponse.success(Success.FIND_SAVED_PIN_SUCCESS, userService.getSavedPinList(request.getUserId()));
+        return ApiResponse.success(Success.GET_SAVED_PIN_SUCCESS, userService.getSavedPinList(request.getUserId()));
     }
 
     @PostMapping("/follow")
