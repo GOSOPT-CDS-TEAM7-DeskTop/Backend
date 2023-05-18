@@ -23,7 +23,6 @@ public class PinDto {
     private String writerNickname;
     private Integer writerFollower;
     private String writerImage;
-    //
 
     private LocalDateTime createdTime;
     private String renderUrl;

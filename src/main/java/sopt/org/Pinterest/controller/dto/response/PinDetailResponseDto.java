@@ -21,7 +21,8 @@ public class PinDetailResponseDto {
     public static PinDetailResponseDto of(Pin pin) {
 
         List<Comment> comment = pin.getCommentList();
-        return new PinDetailResponseDto(PinDto.of(pin), comment.stream().map(CommentDto::of).collect(Collectors.toList()));
+        return new PinDetailResponseDto(
+                PinDto.of(pin), comment.stream().map(CommentDto::of).collect(Collectors.toList()));
     }
 
 }
