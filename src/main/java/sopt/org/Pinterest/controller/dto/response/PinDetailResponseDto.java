@@ -4,6 +4,8 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import sopt.org.Pinterest.controller.dto.CommentDto;
+import sopt.org.Pinterest.controller.dto.PinDto;
 import sopt.org.Pinterest.domain.Comment;
 import sopt.org.Pinterest.domain.Pin;
 

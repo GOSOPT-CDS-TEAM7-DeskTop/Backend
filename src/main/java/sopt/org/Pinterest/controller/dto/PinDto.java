@@ -1,4 +1,4 @@
-package sopt.org.Pinterest.controller.dto.response;
+package sopt.org.Pinterest.controller.dto;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
