@@ -37,8 +37,8 @@ public class User {
 
     @ManyToMany
     @JoinTable(name = "scrap",
-            joinColumns = @JoinColumn(name="user_id"),
-            inverseJoinColumns = @JoinColumn(name="pin_id")
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "pin_id")
     )
     private List<Pin> savedPinList = new ArrayList<>();
 

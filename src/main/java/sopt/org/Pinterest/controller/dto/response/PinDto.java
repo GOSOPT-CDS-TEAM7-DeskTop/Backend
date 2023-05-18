@@ -33,7 +33,7 @@ public class PinDto {
 
         User pinWriter = pin.getUser();
         return new PinDto(pin.getId(), pin.getTitle(), pin.getContent(), pin.getImage(),
-                                  pinWriter.getNickname(), pinWriter.getFollower(), pinWriter.getImage(),
-                                  pin.getCreatedTime(), pin.getRenderUrl(), pin.getAltTxt());
+                pinWriter.getNickname(), pinWriter.getFollower(), pinWriter.getImage(),
+                pin.getCreatedTime(), pin.getRenderUrl(), pin.getAltTxt());
     }
 }

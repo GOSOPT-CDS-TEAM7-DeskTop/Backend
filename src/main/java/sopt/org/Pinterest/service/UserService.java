@@ -20,17 +20,17 @@ public class UserService {
     private final UserRepository userRepository;
 
     public UserInfoResponseDto getUserInfo(Long userId) {
-        User findUser = userRepository.findById(userId)
+        User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
-        return UserInfoResponseDto.of(findUser);
+        return UserInfoResponseDto.of(user);
     }
 
     public List<SavedPinResponseDto> getSavedPinList(Long userId) {
-        User findUser = userRepository.findById(userId)
+        User user = userRepository.findById(userId)
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
-        return findUser.getSavedPinList().stream().map(SavedPinResponseDto::of).collect(Collectors.toList());
+        return user.getSavedPinList().stream().map(SavedPinResponseDto::of).collect(Collectors.toList());
     }
 
     @Transactional

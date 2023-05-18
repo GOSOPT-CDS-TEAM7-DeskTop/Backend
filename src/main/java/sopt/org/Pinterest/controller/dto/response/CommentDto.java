@@ -27,6 +27,6 @@ public class CommentDto {
 
         User commentWriter = comment.getUser();
         return new CommentDto(comment.getId(), comment.getContent(), comment.getLike(),
-                                      comment.getCreatedTime(), commentWriter.getNickname(), commentWriter.getImage());
+                comment.getCreatedTime(), commentWriter.getNickname(), commentWriter.getImage());
     }
 }

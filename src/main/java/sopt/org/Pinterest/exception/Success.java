@@ -29,4 +29,4 @@ public enum Success {
     public int getHttpStatusCode() {
         return httpStatus.value();
     }
-    }
+}

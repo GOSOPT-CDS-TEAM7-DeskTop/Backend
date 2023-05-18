@@ -22,7 +22,7 @@ public class CommentController {
     @ResponseStatus(HttpStatus.CREATED)
     public ApiResponse<CommentCreatedDto> createComment(@RequestBody @Valid final CommentRequestDto request,
                                                         @PathVariable final Long pinId) {
-        
+
         return ApiResponse.success(Success.CREATE_COMMENT_SUCCESS, commentService.createComment(request, pinId));
     }
 }

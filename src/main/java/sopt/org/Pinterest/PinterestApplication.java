@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @SpringBootApplication
 public class PinterestApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(PinterestApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(PinterestApplication.class, args);
+    }
 
 }

@@ -20,6 +20,6 @@ public class PinController {
     @ResponseStatus(HttpStatus.OK)
     public ApiResponse<PinDetailResponseDto> getOnePinDetails(@PathVariable final Long pinId) {
 
-        return ApiResponse.success(Success.FIND_PIN_DETAILS_SUCCESS, pinService.getOnePinDetails(pinId));
+        return ApiResponse.success(Success.GET_PIN_DETAILS_SUCCESS, pinService.getOnePinDetails(pinId));
     }
 }
