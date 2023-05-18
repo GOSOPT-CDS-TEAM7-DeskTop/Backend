@@ -39,7 +39,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     public ApiResponse followUser(@RequestBody @Valid final FollowRequestDto request) {
 
-        userService.followUser(request.getFollowedUserId(), request.getFollowingUserId());
+        userService.followUser(request.getFollowedUserId(), 1L);
         return ApiResponse.success(Success.FOLLOW_USER_SUCCESS);
     }
 }
