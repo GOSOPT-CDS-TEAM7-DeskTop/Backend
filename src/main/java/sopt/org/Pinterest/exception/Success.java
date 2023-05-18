@@ -6,14 +6,14 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 @Getter
-@AllArgsConstructor(access =  AccessLevel.PRIVATE)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 public enum Success {
 
     /**
      * 200 OK
      */
     FIND_PIN_DETAILS_SUCCESS(HttpStatus.OK, "게시글 상세정보 조회가 완료됐습니다"),
-    ;
+    GET_ALL_PIN_SUCCESS(HttpStatus.OK, "핀 전체 조회 성공");
 
     private final HttpStatus httpStatus;
     private final String message;
