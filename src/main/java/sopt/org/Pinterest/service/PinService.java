@@ -21,10 +21,10 @@ public class PinService {
 
     public PinDetailResponseDto getOnePinDetails(Long pinId) {
 
-        Pin findPin = pinRepository.findById(pinId)
+        Pin pin = pinRepository.findById(pinId)
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
 
-        return PinDetailResponseDto.of(findPin);
+        return PinDetailResponseDto.of(pin);
     }
 
     public PinListResponseDto getAllPins() {
