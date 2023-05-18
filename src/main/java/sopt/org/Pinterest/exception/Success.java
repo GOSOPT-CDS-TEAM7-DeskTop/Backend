@@ -16,6 +16,7 @@ public enum Success {
     FIND_USER_INFO_SUCCESS(HttpStatus.OK, "마이페이지 유저정보 조회가 완료되었습니다"),
     FIND_SAVED_PIN_SUCCESS(HttpStatus.OK, "마이페이지 정리되지 않은 아이디어 조회가 완료되었습니다"),
     GET_ALL_PIN_SUCCESS(HttpStatus.OK, "핀 전체 조회 성공"),
+    FIND_USER_INFO_SUCCESS(HttpStatus.OK, "마이페이지 유저정보 조회가 완료되었습니다"),
 
     /**
      * 201 CREATED
