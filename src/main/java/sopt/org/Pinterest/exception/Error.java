@@ -13,7 +13,6 @@ public enum Error {
      * 400 BAD REQUEST
      */
     REQUEST_VALIDATION_EXCEPTION(HttpStatus.BAD_REQUEST, "잘못된 요청입니다"),
-    EMPTY_COMMENT_EXCEPTION(HttpStatus.BAD_REQUEST, "댓글 내용은 비어있을 수 없습니다"),
 
     /**
      * 404 NOT FOUND
