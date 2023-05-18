@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.Pinterest.common.dto.ApiResponse;
+import sopt.org.Pinterest.controller.dto.request.FollowRequestDto;
 import sopt.org.Pinterest.controller.dto.response.SavedPinResponseDto;
 import sopt.org.Pinterest.controller.dto.request.UserRequestDto;
 import sopt.org.Pinterest.controller.dto.response.UserInfoResponseDto;
@@ -32,5 +33,13 @@ public class UserController {
     public ApiResponse<List<SavedPinResponseDto>> getSavedPinList(@RequestBody @Valid final UserRequestDto request) {
 
         return ApiResponse.success(Success.FIND_SAVED_PIN_SUCCESS, userService.getSavedPinList(request.getUserId()));
+    }
+
+    @PostMapping("/follow")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ApiResponse followUser(@RequestBody @Valid final FollowRequestDto request) {
+
+        userService.followUser(request.getFollowedUserId(), request.getFollowingUserId());
+        return ApiResponse.success(Success.FOLLOW_USER_SUCCESS);
     }
 }

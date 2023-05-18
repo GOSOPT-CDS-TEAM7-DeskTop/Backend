@@ -20,6 +20,7 @@ public enum Success {
      * 201 CREATED
      */
     CREATE_COMMENT_SUCCESS(HttpStatus.CREATED, "댓글 작성이 완료되었습니다"),
+    FOLLOW_USER_SUCCESS(HttpStatus.CREATED, "팔로우가 완료되었습니다"),
     ;
 
     private final HttpStatus httpStatus;

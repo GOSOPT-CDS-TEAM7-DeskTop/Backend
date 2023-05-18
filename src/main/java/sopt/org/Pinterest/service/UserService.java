@@ -2,6 +2,7 @@ package sopt.org.Pinterest.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import sopt.org.Pinterest.controller.dto.response.CommentResponseDto;
 import sopt.org.Pinterest.controller.dto.response.PinDetailsDto;
 import sopt.org.Pinterest.controller.dto.response.SavedPinResponseDto;
@@ -32,5 +33,17 @@ public class UserService {
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
         return findUser.getSavedPinList().stream().map(SavedPinResponseDto::of).collect(Collectors.toList());
+    }
+
+    @Transactional
+    public void followUser(Long followedUserId, Long followingUserId) {
+        User followedUser = userRepository.findById(followedUserId)
+                .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_FOLLOWED_USER_EXCEPTION, Error.NOT_FOUND_FOLLOWED_USER_EXCEPTION.getMessage()));
+
+        User followingUser = userRepository.findById(followingUserId)
+                .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
+
+        followedUser.addFollower();
+        followingUser.addFollowing();
     }
 }

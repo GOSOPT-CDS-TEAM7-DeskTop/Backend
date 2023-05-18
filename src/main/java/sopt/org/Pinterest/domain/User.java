@@ -42,6 +42,14 @@ public class User {
     )
     private List<Pin> savedPinList = new ArrayList<>();
 
+    public void addFollower() {
+        this.follower += 1;
+    }
+
+    public void addFollowing() {
+        this.following += 1;
+    }
+
     private User(String account, String nickname, String image) {
         this.account = account;
         this.nickname = nickname;
