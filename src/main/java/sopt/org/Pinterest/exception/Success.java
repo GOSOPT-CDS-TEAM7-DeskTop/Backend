@@ -14,6 +14,7 @@ public enum Success {
      */
     FIND_PIN_DETAILS_SUCCESS(HttpStatus.OK, "게시글 상세정보 조회가 완료됐습니다"),
     GET_ALL_PIN_SUCCESS(HttpStatus.OK, "핀 전체 조회 성공"),
+    FIND_USER_INFO_SUCCESS(HttpStatus.OK, "마이페이지 유저정보 조회가 완료되었습니다"),
 
     /**
      * 201 CREATED

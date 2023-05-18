@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-
 import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
 import sopt.org.Pinterest.controller.dto.response.PinDto;
 import sopt.org.Pinterest.controller.dto.response.PinListResponseDto;
