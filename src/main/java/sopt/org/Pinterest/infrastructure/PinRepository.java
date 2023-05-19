@@ -14,4 +14,6 @@ public interface PinRepository extends Repository<Pin, Long> {
     List<Pin> findAll();
 
     List<Pin> findPinsByTitleContaining(String title);
+
+    Pin save(Pin pin);
 }
