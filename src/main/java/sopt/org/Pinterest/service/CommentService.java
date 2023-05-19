@@ -28,7 +28,7 @@ public class CommentService {
         Pin pin = pinRepository.findById(pinId)
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
 
-        User writer = userRepository.findById(request.getUserId())
+        User writer = userRepository.findById(1L)
                 .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
         Comment newComment = Comment.newInstance(writer, pin, request.getContent());
