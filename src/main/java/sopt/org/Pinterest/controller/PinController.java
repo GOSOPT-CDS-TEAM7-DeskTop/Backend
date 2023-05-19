@@ -21,6 +21,12 @@ public class PinController {
     public ApiResponse<PinListResponseDto> getAllPins() {
         return ApiResponse.success((Success.GET_ALL_PIN_SUCCESS), pinService.getAllPins());
     }
+    @GetMapping("/")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponse<PinListResponseDto> getOnePinDetails(@RequestParam String title) {
+
+        return ApiResponse.success(Success.GET_PIN_BY_TITLE, pinService.getPinByTitle(title));
+    }
 
     @GetMapping("/{pinId}")
     @ResponseStatus(HttpStatus.OK)
