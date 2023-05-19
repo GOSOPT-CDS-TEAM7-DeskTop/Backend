@@ -27,10 +27,17 @@ public class PinService {
         return PinDetailResponseDto.of(pin);
     }
 
+    public PinListResponseDto getPinByTitle(String title) {
+        List<PinDto> pins = pinRepository.findPinsByTitleContaining(title).stream().map(PinDto::of).collect(Collectors.toList());
+
+        return PinListResponseDto.of(pins);
+    }
+
     public PinListResponseDto getAllPins() {
         List<PinDto> pins = pinRepository.findAll().stream().map(PinDto::of).collect(Collectors.toList());
 
         return PinListResponseDto.of(pins);
     }
+
 
 }
