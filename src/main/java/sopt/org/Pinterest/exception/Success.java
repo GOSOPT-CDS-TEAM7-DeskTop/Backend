@@ -22,6 +22,7 @@ public enum Success {
      */
     CREATE_COMMENT_SUCCESS(HttpStatus.CREATED, "댓글 작성 완료"),
     FOLLOW_USER_SUCCESS(HttpStatus.CREATED, "팔로우 완료"),
+    POST_PIN_SAVE(HttpStatus.CREATED, "핀 저장 성공")
     ;
 
     private final HttpStatus httpStatus;

@@ -1,13 +1,21 @@
 package sopt.org.Pinterest.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
-
-import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import sopt.org.Pinterest.exception.Error;
+import sopt.org.Pinterest.exception.model.ConflictException;
 
 @Entity
 @Getter
@@ -48,6 +56,13 @@ public class User {
 
     public void addFollowing() {
         this.following += 1;
+    }
+
+    public void savePin(Pin pin) {
+        if(this.savedPinList.contains(pin))  {
+            throw new ConflictException(Error.ALREAD_SAVED_PIN, Error.ALREAD_SAVED_PIN.getMessage());
+        }
+        this.savedPinList.add(pin);
     }
 
     private User(String account, String nickname, String image) {

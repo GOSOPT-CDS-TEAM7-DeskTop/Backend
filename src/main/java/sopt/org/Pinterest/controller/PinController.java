@@ -1,9 +1,12 @@
 package sopt.org.Pinterest.controller;
 
+import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.Pinterest.common.dto.ApiResponse;
+import sopt.org.Pinterest.controller.dto.request.CommentRequestDto;
+import sopt.org.Pinterest.controller.dto.request.PinSaveRequestDto;
 import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
 import sopt.org.Pinterest.controller.dto.response.PinListResponseDto;
 import sopt.org.Pinterest.exception.Success;
@@ -23,9 +26,17 @@ public class PinController {
     }
     @GetMapping("/")
     @ResponseStatus(HttpStatus.OK)
-    public ApiResponse<PinListResponseDto> getOnePinDetails(@RequestParam String title) {
+    public ApiResponse<PinListResponseDto> getOnePinDetails(@RequestParam final String title) {
 
         return ApiResponse.success(Success.GET_PIN_BY_TITLE, pinService.getPinByTitle(title));
+    }
+
+    @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ApiResponse savePin(@RequestBody @Valid final PinSaveRequestDto request) {
+
+        pinService.savePin(request.getPinId(), 1L);
+        return ApiResponse.success(Success.POST_PIN_SAVE);
     }
 
     @GetMapping("/{pinId}")
