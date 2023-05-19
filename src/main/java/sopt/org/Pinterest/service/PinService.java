@@ -2,22 +2,26 @@ package sopt.org.Pinterest.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
 import sopt.org.Pinterest.controller.dto.PinDto;
+import sopt.org.Pinterest.controller.dto.request.PinSaveRequestDto;
+import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
 import sopt.org.Pinterest.controller.dto.response.PinListResponseDto;
 import sopt.org.Pinterest.domain.Pin;
+import sopt.org.Pinterest.domain.User;
 import sopt.org.Pinterest.exception.Error;
 import sopt.org.Pinterest.exception.model.NotFoundException;
 import sopt.org.Pinterest.infrastructure.PinRepository;
+import sopt.org.Pinterest.infrastructure.UserRepository;
 
 @Service
 @RequiredArgsConstructor
 public class PinService {
 
     private final PinRepository pinRepository;
+    private final UserRepository userRepository;
 
     public PinDetailResponseDto getOnePinDetails(Long pinId) {
 
@@ -39,5 +43,16 @@ public class PinService {
         return PinListResponseDto.of(pins);
     }
 
+    @Transactional
+    public void savePin(final Long pinId, final Long userId) {
+
+        Pin pin = pinRepository.findById(pinId)
+            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
+
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
+
+        user.savePin(pin);
+    }
 
 }
