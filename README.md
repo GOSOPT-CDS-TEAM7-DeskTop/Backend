@@ -71,7 +71,6 @@
 # 🌱 Branch
 
 <aside>
-git branch 전략
 
 `main branch` : 배포 단위 branch
 
@@ -225,15 +224,15 @@ git branch 전략
     thing3();
     }
 
-        // good
-        if (test) {
-          thing1();
-          thing2();
-        } else {
-          thing3();
-        }
+    // good
+    if (test) {
+      thing1();
+      thing2();
+    } else {
+      thing3();
+    }
 
-        ```
+    ```
 </div>
 </details>
 
@@ -250,6 +249,7 @@ git branch 전략
      * @param {String} tag
      * @return {Element} element
      */
+    
     function make(tag) {
         // ...stuff...
 
@@ -264,20 +264,20 @@ git branch 전략
     // bad
     const active = true; // is current tab
 
-        // good
-        // is current tab
-        const active = true;
+    // good
+    // is current tab
+    const active = true;
 
-        // good
-        function getType() {
-          console.log('fetching type...');
+    // good
+    function getType() {
+        console.log('fetching type...');
 
-          // set the default type to 'no type'
-          const type = this._type || 'no type';
+        // set the default type to 'no type'
+        const type = this._type || 'no type';
 
-          return type;
-        }
+        return type;
+    }
 
-        ```
+    ```
 </div>
 </details>
