@@ -6,6 +6,7 @@ import javax.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import sopt.org.Pinterest.controller.dto.PinDto;
+import sopt.org.Pinterest.controller.dto.request.PinCreateRequestDto;
 import sopt.org.Pinterest.controller.dto.request.PinSaveRequestDto;
 import sopt.org.Pinterest.controller.dto.response.PinDetailResponseDto;
 import sopt.org.Pinterest.controller.dto.response.PinListResponseDto;
@@ -26,19 +27,30 @@ public class PinService {
     public PinDetailResponseDto getOnePinDetails(Long pinId) {
 
         Pin pin = pinRepository.findById(pinId)
-                .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
+            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
 
         return PinDetailResponseDto.of(pin);
     }
 
+    public void createPin(final PinCreateRequestDto request) {
+        User user = userRepository.findById(1L).orElseThrow(() ->
+            new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION,
+                Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
+
+        Pin pin = Pin.newInstance(request.getTitle(), request.getContent(), "~~~", user, request.getRenderUrl(), request.getAltTxt());
+        pinRepository.save(pin);
+    }
+
     public PinListResponseDto getPinByTitle(String title) {
-        List<PinDto> pins = pinRepository.findPinsByTitleContaining(title).stream().map(PinDto::of).collect(Collectors.toList());
+        List<PinDto> pins = pinRepository.findPinsByTitleContaining(title).stream().map(PinDto::of)
+            .collect(Collectors.toList());
 
         return PinListResponseDto.of(pins);
     }
 
     public PinListResponseDto getAllPins() {
-        List<PinDto> pins = pinRepository.findAll().stream().map(PinDto::of).collect(Collectors.toList());
+        List<PinDto> pins = pinRepository.findAll().stream().map(PinDto::of)
+            .collect(Collectors.toList());
 
         return PinListResponseDto.of(pins);
     }
@@ -47,10 +59,12 @@ public class PinService {
     public void savePin(final Long pinId, final Long userId) {
 
         Pin pin = pinRepository.findById(pinId)
-            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION, Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
+            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_PIN_EXCEPTION,
+                Error.NOT_FOUND_PIN_EXCEPTION.getMessage()));
 
         User user = userRepository.findById(userId)
-            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION, Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
+            .orElseThrow(() -> new NotFoundException(Error.NOT_FOUND_USER_EXCEPTION,
+                Error.NOT_FOUND_USER_EXCEPTION.getMessage()));
 
         user.savePin(pin);
     }
