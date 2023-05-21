@@ -1,9 +1,10 @@
 # ✨ Pinterest
 
----
 <img src="https://github.com/GOSOPT-CDS-TEAM7-DeskTop/Backend/assets/67463603/04e1e958-9249-401d-8952-759497666fe7" width="300"/>
 
 > 32기 GO SOPT 합동 세미나 Pinterest
+
+<hr>
 
 ## 🌸 Contributors 섭팟이들
 |                             이동섭                             |                               정준서                        |
@@ -12,8 +13,6 @@
 |              [ddongseop](https://github.com/ddongseop)               |             [sunseo18](https://github.com/sunseo18)              |
 
 <hr>
-
-
 
 ## ⭐️ Role
 
@@ -49,6 +48,8 @@
 
 ## 👉️ ERD
 <img width="786" alt="KakaoTalk_Photo_2023-05-19-18-09-17" src="https://github.com/GOSOPT-CDS-TEAM7-DeskTop/Backend/assets/67463603/a1e273aa-8837-4221-8b7f-e22e1a23f3f7">
+
+<hr>
 
 ## 👉 Project Structure
 
@@ -87,8 +88,8 @@
     -   reviewer에 서로 tag후 code-review
     -   comment 전 merge 불가!
 
-
 </aside>
+
 <hr>
 
 # 🙏 Commit Convention
