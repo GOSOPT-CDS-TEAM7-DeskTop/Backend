@@ -15,7 +15,6 @@ import sopt.org.Pinterest.service.PinService;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/pin")
-@CrossOrigin(origins = "*")
 public class PinController {
 
     private final PinService pinService;
