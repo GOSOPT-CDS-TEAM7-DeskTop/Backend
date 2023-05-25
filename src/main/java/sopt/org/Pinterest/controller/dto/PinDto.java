@@ -20,6 +20,7 @@ public class PinDto {
     private String image;
 
     //작성자 관련 정보
+    private Long writerId;
     private String writerNickname;
     private Integer writerFollower;
     private String writerImage;
@@ -32,7 +33,7 @@ public class PinDto {
 
         User pinWriter = pin.getUser();
         return new PinDto(pin.getId(), pin.getTitle(), pin.getContent(), pin.getImage(),
-                pinWriter.getNickname(), pinWriter.getFollower(), pinWriter.getImage(),
+                pinWriter.getId(), pinWriter.getNickname(), pinWriter.getFollower(), pinWriter.getImage(),
                 pin.getCreatedTime(), pin.getRenderUrl(), pin.getAltTxt());
     }
 }

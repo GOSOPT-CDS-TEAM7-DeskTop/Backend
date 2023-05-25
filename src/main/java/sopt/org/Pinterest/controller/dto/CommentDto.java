@@ -20,6 +20,7 @@ public class CommentDto {
     private LocalDateTime createdTime;
 
     //작성자 관련 정보
+    private Long writerId;
     private String writerNickname;
     private String writerImage;
     //
@@ -28,6 +29,6 @@ public class CommentDto {
 
         User commentWriter = comment.getUser();
         return new CommentDto(comment.getId(), comment.getContent(), comment.getLike(),
-                comment.getCreatedTime(), commentWriter.getNickname(), commentWriter.getImage());
+                comment.getCreatedTime(), commentWriter.getId(), commentWriter.getNickname(), commentWriter.getImage());
     }
 }
