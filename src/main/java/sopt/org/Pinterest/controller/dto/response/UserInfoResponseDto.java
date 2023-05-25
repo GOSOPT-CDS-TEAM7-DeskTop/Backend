@@ -11,6 +11,7 @@ import sopt.org.Pinterest.domain.User;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class UserInfoResponseDto {
 
+    private Long userId;
     private String userImage;
     private String nickname;
     private String account;
@@ -18,6 +19,6 @@ public class UserInfoResponseDto {
 
     public static UserInfoResponseDto of(User user) {
 
-        return new UserInfoResponseDto(user.getImage(), user.getNickname(), user.getAccount(), user.getFollowing());
+        return new UserInfoResponseDto(user.getId(), user.getImage(), user.getNickname(), user.getAccount(), user.getFollowing());
     }
 }
